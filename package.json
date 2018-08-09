@@ -1,0 +1,22 @@
+{
+  "name": "connect-sdk-client-js-example-webpack",
+  "version": "1.8.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server",
+    "webpack": "webpack --config webpack.config.js --mode=development"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-sdk-client-js": "^3.9.3",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.4.0",
+    "node-forge": "^0.7.5"
+  }
+}
