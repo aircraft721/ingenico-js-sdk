@@ -1,8 +1,8 @@
 var connect = require('connect-sdk-client-js/dist/connectsdk.noEncrypt');
 
 var sessionDetails = {
-    clientSessionID: 'afbceb760c9147e78c01c75d45a1772e',
-    customerId: '1868-4b5395f4fad543ecae072ae28b81eca0',
+    clientSessionID: '04a1e04685014fdca6d604062b5d2bfa',
+    customerId: '1868-250e683584ef4117b391fe0c1aa32dfc',
     clientApiUrl: 'https://eu.sandbox.api-ingenico.com/client/v1',
     assetUrl: '/'
 };
@@ -22,6 +22,17 @@ var paymentProductSpecificInputs = {
 };
 
 var paymentProductId = "809";
+
+var paymentProductId2 = "9000";
+
+var searchParameters = {
+    "countryCode": "SE",
+    "values": [{
+        "key": "fiscalNumber",
+        "value": "012345678901"
+    }]
+};
+
 
 var currencyCode = "EUR";
 
@@ -92,6 +103,13 @@ var createPayload = function (session, cardNumber, paymentDetails) {
                 }, function (error) {
                     console.log(error);
                 });
+                //get customer details
+                session.getCustomerDetails(paymentProductId2, searchParameters).then(function (paymentProductCustomerDetails) {
+                    console.log('paymentProductCustomerDetails', paymentProductCustomerDetails)
+                }, function (error) {
+                    console.log('paymentProductCustomerDetails ERROR: ',error);
+                });
+
 
                 document.querySelector('.output').innerText = 'Encrypted to: ' + paymentHash;
             }, function (errors) {
